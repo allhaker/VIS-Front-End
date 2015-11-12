@@ -1,0 +1,62 @@
+/*-------------------Base64 decode controller from app.js-------------------------*\
+	app.controller('ConvertPictureController', [
+        '$base64', '$scope', 
+        function($base64, $scope) {
+
+            $scope.encoded = $base64.encode('a string');
+            $scope.decoded = $base64.decode('YSBzdHJpbmc=');
+		}]);
+/*---------------------------------------------------------------------*\
+ /***** User entity class *****/
+function UserEntity(data) { ///
+ /*** Initialize function ***/
+ this.initialize = function(data) {
+  this.setData(data);
+ }
+ 
+ /*** Get data object for transmission ***/
+ this.getData = function() {
+  return {
+   id : this.id,
+   name : this.username,
+   email : this.email,
+   pass : this.password,
+   firstname : this.firstName,
+   lastname : this.lastName
+  };
+ }
+ 
+ /*** Set transmitted data object and initialize the entity ***/
+ this.setData = function(data) {
+  data = isDefined(data) ? data : {}; ///if data defined then data else 
+  this.id = isDefined(data.id) ? data.id : -1;
+  this.username = isDefined(data.name) ? data.name : '';
+  this.email = isDefined(data.email) ? data.email : '';
+  this.password = isDefined(data.pass) ? data.pass : '';
+  this.firstName = isDefined(data.firstname) ? data.firstname : '';
+  this.lastName = isDefined(data.lastname) ? data.lastname : '';
+ }
+
+/***** Check if variable is defined *****/
+function isDefined(variable) {
+ if ((variable !== undefined) && (variable !== null))
+  return true;
+ return false;
+}
+ 
+ /*** Initialization actions ***/
+ this.initialize(data);
+}
+
+
+/*** Create User AJAX request***/
+    /*$.ajax({
+         url: 'http://10.112.195.246:8080/VIS/users',
+         type: "POST",
+         data: JSON.stringify($scope.user),
+         dataType: "json",
+         contentType: "application/json"
+            })
+         .done(function (data) {
+         console.log("Response " + JSON.stringify(data));
+         });*/

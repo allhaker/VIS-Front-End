@@ -1,0 +1,9 @@
+<div ng-init="initialize()">
+    <h1>List of all Servers</h1>
+    <div>
+        <div id="mainlistcontainer" ng-repeat="server in servers" ng-show="show[$index]">        
+           <serverListElement></serverListElement>
+           <button class="add delete" title="Delete Server"type="button" ng-click="delete(server.id, $index)"></button> 
+        </div>
+    </div>
+</div>

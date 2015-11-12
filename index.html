@@ -1,0 +1,66 @@
+<html ng-app="VIS">
+
+<head>
+    <title>VIS Main</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">    
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/xeditable.css">
+    <link rel="stylesheet" type="text/css" href="css/build.css">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script type="text/javascript" language="javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" language="javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/angular-route.js"></script>
+    <script type="text/javascript" src="js/xeditable.min.js"></script>  
+    <script type="text/javascript" src="js/moment.js"></script>    
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="js/truncate.js"></script>
+    <script type="text/javascript" src="js/app.js"></script> 
+    <script type="text/javascript" src="js/models.js"></script>
+    <script type="text/javascript" src="js/userService.js"></script>
+    <script type="text/javascript" src="js/userController.js"></script>
+    <script type="text/javascript" src="js/serverService.js"></script>
+    <script type="text/javascript" src="js/serverController.js"></script>
+    <script type="text/javascript" src="js/directives.js"></script>
+    
+</head>
+
+<body ng-controller="userLoginController" ng-init="initialize()">
+    <div ng-show="isLoggedIn">        
+        <div id="leftMenu">
+            <div class="menuItem logo">
+                <a href="#/vmlist"></a>
+            </div>
+            <div class="menuItem newVM">
+                <a href="#/newserver">New Server</a>
+            </div>
+            <div class="menuItem vm">
+                <a href="#/vmlist">Servers</a>
+            </div>
+            <div class="menuItem user">
+                <a href="#/userlist">Users</a>
+            </div>
+            <div class="menuItem cmd">
+                <a href="#/cli">CLI</a>
+            </div>
+        </div>
+            <div class="dropdown-user">
+                <button class="btn btn-mainmenu dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    {{username}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-user" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#/myaccount">My Account</a></li>                
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="logout()">Log out</a></li>
+                </ul>
+            </div>
+    </div>
+        <div id="content">
+            <ng-view></ng-view>
+        </div>    
+</body>
+</html>
